@@ -1,0 +1,8 @@
+node_modules
+
+dist
+coverage
+nbproject
+nbproject/*
+README.md
+package-lock.json

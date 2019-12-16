@@ -1,0 +1,169 @@
+<link href="https://fonts.googleapis.com/css?family=Mukta+Mahee" rel="stylesheet">
+<div class="clients">
+    <a ui-sref="add-client" ui-sref-active="add-client">
+        <div class="add-client-button">
+            <img src="img/add_employee.png" 
+                 style="
+                 width: 50%;
+                 height: 50%;
+                 left: 30%;
+                 top: 25%;
+                 position: relative;"> 
+        </div> 
+    </a>    
+    
+    <div>
+        <ul>
+            <li ng-repeat="client in $ctrl.clients">
+                <div class="content clearfix">
+                    <div class="cube-container">
+				<div class="client-photo-cube">
+                                    <div class="back photo-desc" src="http://gdurl.com/tvtR" alt="">       
+                                    </div>
+					<div class="front photo-desc" ng-class="{red: client.unwanted}">             
+                <div style='display: inline;
+                            position: absolute; 
+                            height: 20px; 
+                            width: 100%;  
+                            left: 0;
+                            right: 0;
+                            z-index: 100;' >
+                    <span
+                        ng-show="$ctrl.currentlyEditedClientId != client.id" 
+                        class="client-name">
+                        {{client.name + ' ' + client.lastname}}
+                    </span>
+                    <div style='width: auto; height: 100%;'>
+                    <span ng-show="$ctrl.currentlyEditedClientId == client.id" style='height: 10%;'>
+                        <input 
+                            type="text" 
+                            class="edit-form-styling-name" 
+                            ng-model="$ctrl.currentlyEditedClient.name"
+                            ng-class="{red: $ctrl.hasInputAnyErrors('name')}"
+                        />
+                        <div 
+                            class="text-error"
+                            ng-repeat="singleError in $ctrl.errors.name" 
+                            ng-show="singleError.isOccuring"
+                        >
+                            <a class="text-error-style">
+                            {{singleError.label}}
+                            </a>
+                        </div>
+                        <input 
+                            type="text" 
+                            class="edit-form-styling-lastname" 
+                            ng-model="$ctrl.currentlyEditedClient.lastname"
+                            ng-class="{red: $ctrl.hasInputAnyErrors('lastname')}"
+                        />
+                        <div 
+                            class="text-error"
+                            ng-repeat="singleError in $ctrl.errors.lastname" 
+                            ng-show="singleError.isOccuring"
+                        >
+                            <a class="text-error-style">
+                            {{singleError.label}}
+                            </a>
+                        </div>    
+                    </span>
+                </div>
+                </div>
+                <div style='display: inline;
+                            position: relative;
+                            left: 0;
+                            right: 0;
+                            top: 60px;
+                            margin-top: 5%;
+                            width: 100%;
+                            z-index: 100'>
+                    <span 
+                        class="client-phone" 
+                        ng-show="$ctrl.currentlyEditedClientId != client.id"
+                    >
+                        {{' phone ' + client.phone}}
+                    </span>
+                   
+                    <span ng-show="$ctrl.currentlyEditedClientId == client.id" style='height: 10%;'>
+                        <input 
+                            type="text" 
+                            class="edit-form-styling-phone" 
+                            ng-model="$ctrl.currentlyEditedClient.phone"
+                            ng-class="{red: $ctrl.hasInputAnyErrors('phone')}"
+                        />
+                    </span>    
+                        </div> 
+                    <div style='display: inline;
+                            position: relative;
+                            left: 65px;
+                            right: 0;
+                            top: 100px;
+                            margin-top: 5%;
+                            width: 100%;
+                            z-index: 100'>
+                    
+                        <img
+                            ng-click="$ctrl._getMoreInformation(client.id)" 
+                            src = 'img/details.png'
+                            class="details-button"   
+                            ng-show="$ctrl.currentlyEditedClientId != client.id"
+                        >
+                        
+                    </div>                        
+                    <div style='display: inline; 
+                                position: relative; 
+                                width: 25px;
+                                height: 25px;
+                                z-index: 100;
+                                top: 80px'>
+                    <span 
+                        class="client-id"                        
+                    >
+                        {{' id: ' + client.id + '.'}}
+                    </span>
+                </div>  		
+					</div>
+					<img class="left" src="http://gdurl.com/tvtR" alt="">
+					<img class="right" src="http://gdurl.com/VjHH" alt="">
+
+				</div>
+			</div>	
+
+		</div>
+                       
+                      
+                <img
+                    ng-click="$ctrl.removeClient($ctrl.onClientRemovalConfirmed, client.id)" 
+                    src = 'img/delete_icon.png'
+                    class="editing-button"   
+                    ng-show="$ctrl.currentlyEditedClientId != client.id"
+                    ng-class="{fadingOut: $ctrl.editButtonMovingStart, fadingIn: $ctrl.editButtonMovingStop}"
+                    style="bottom: 160px; left: 200px;"
+                >
+                <img
+                    ng-click="$ctrl.onStartClientEditing(client.id)" 
+                    src = 'img/edit_icon.png'
+                    class="editing-button"
+                    ng-show="$ctrl.currentlyEditedClientId != client.id"
+                    ng-class="{fadingOut: $ctrl.editButtonMovingStart, fadingIn: $ctrl.editButtonMovingStop}"
+                    style="bottom: 160px; left: 170px;"
+                >
+                <img 
+                    ng-click="$ctrl.onFinishClientEditing()" 
+                    src = 'img/accept_icon.png'
+                    class="editing-button"
+                    ng-show="$ctrl.currentlyEditedClientId == client.id"
+                    style="opacity: 0.5; bottom: 0; left: 140px;"
+                >
+                <img 
+                    ng-click="$ctrl.onResignClientEditing()" 
+                    src = 'img/resign_icon.png'
+                    class="editing-button"
+                    ng-show="$ctrl.currentlyEditedClientId == client.id"
+                    style="opacity: 0.5; bottom: 0; left: 161px;"
+                >  
+            </li>
+        </ul>
+    </div>  
+</div>    
+   
+

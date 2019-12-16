@@ -1,0 +1,167 @@
+<link href="https://fonts.googleapis.com/css?family=Mukta+Mahee" rel="stylesheet">
+<div class="add-employee">  
+    <a ui-sref="employees" ui-sref-active="add-employee">
+        <div class="back-button">
+            <img src="img/back.png" 
+                 style="
+                 width: 50%;
+                 height: 50%;
+                 left: 30%;
+                 top: 25%;
+                 position: relative;"> 
+        </div> 
+    </a> 
+<div class="employees-adding-frame">
+        <span class="signin-active" ng-click="$ctrl.fetchEmployees()">
+            <a>LOAD EMPLOYEE DATA</a>
+        </span>
+        <p> 
+            <form name ="employeeName" class="form-signin">
+                <label>
+                NAME
+                </label> 
+                    <input 
+                        class="form-styling"
+                        type= "text" 
+                        name="employeeName"
+                        maxlength="20"
+                        ng-focus="$ctrl.clearInputErrors('name')"
+                        ng-model="$ctrl.currentlyAddedEmployee.name" 
+                        ng-class="{
+                            red: $ctrl.hasInputAnyErrors('name')
+                        }"
+                    />
+                    <div  
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.name" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                </div>
+        </p>
+        <p>
+                <label style="margin-top: 10px;">
+                LAST NAME
+                </label>
+                    <input
+                        class="form-styling"
+                        type= "text" 
+                        maxlength="20"
+                        name="employeeLastName" 
+                        ng-focus="$ctrl.clearInputErrors('lastname')"
+                        ng-model="$ctrl.currentlyAddedEmployee.lastname"  
+                        ng-class="{
+                             red: $ctrl.hasInputAnyErrors('lastname')
+                        }"
+                    />
+                    <div 
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.lastname" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                    </div>
+ 
+        </p> 
+                <label class="photo-label" style="margin-top: 10px;">
+                    PHOTO
+                    <div class="add-image-button" 
+                         ng-show="$ctrl.currentlyAddedEmployee.photo === undefined 
+                         || $ctrl.currentlyAddedEmployee.photo === '' ">
+                        <label style="width: 100%; height: 100%; margin: 0; padding: 0;">
+                            <input class="hide"
+                                type= "file"
+                                name="employeePhoto" 
+                                ng-focus=""
+                                ng-model= "$ctrl.currentlyAddedEmployee.photo" base-sixty-four-input
+                                
+                                ng-class="{
+                                     red: $ctrl.hasInputAnyErrors('photo')
+                                }"
+                                />
+                            <div 
+                                class="text-error"
+                                ng-repeat="singleError in $ctrl.errors.photo" 
+                                ng-show="singleError.isOccuring"
+                            >
+                                {{singleError.label}}
+                            </div>
+                        </label>
+                    </div>  
+                   
+                    <img class="adding-employee-photo" 
+                             ng-src="{{$ctrl.handlePhoto($ctrl.currentlyAddedEmployee.photo.base64)}}"
+                             ng-show="$ctrl.currentlyAddedEmployee.photo"
+                             ng-click="$ctrl.giveUpThePhoto = true"
+                        >
+                </label> 
+                    <img 
+                    ng-click="$ctrl._onDeletePhotoInEmployeeAdding()" 
+                    src = 'img/delete_photo_icon.png'
+                    class="editing-button"
+                    ng-show="$ctrl.currentlyAddedEmployee.photo"
+                    style="opacity: 0.5;position: absolute;left: 28%;top: 46.5%;"
+                    >
+                <p>
+                <label style="margin-top: 26%;">
+                PHONE
+                </label>
+                    <input
+                        class="form-styling"
+                        name="employeePhone" 
+                        type="text" 
+                        ng-focus="$ctrl.clearInputErrors('phone')"
+                        ng-model="$ctrl.currentlyAddedEmployee.phone"  
+                        ng-class="{
+                             red: $ctrl.hasInputAnyErrors('phone')
+                        }"
+                    />
+                    <div 
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.phone" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                    </div>
+ 
+        </p>     
+                <p>
+                <label style="">
+                COLOR
+                </label>
+                    <input
+                        class="add-color-button"
+                        name="employeeColor" 
+                        type="color" 
+                        ng-focus=""
+                        ng-model="$ctrl.currentlyAddedEmployee.color"  
+                    />
+                    <div 
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.color" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                    </div>
+ 
+        </p>  
+            </form>    
+    <div class="employees-btn-animate" ng-click="$ctrl.addEmployee()"><a class="btn-signin">ADD</a></div>
+</div>
+<div class="employees-data" ng-show="$ctrl.fetchingEmployees">
+    Loading employee data from the server, please wait ...
+</div>
+    
+<div class="employees-data" ng-show="$ctrl.employeesFetchingError">
+    An error occurred while loading employee data: {{$ctrl.employeesFetchingError}}
+</div>
+    
+</div>

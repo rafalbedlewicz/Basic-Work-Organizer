@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css?family=Mukta+Mahee");
+
+.clients{
+    margin: 0 auto;
+    position: relative;
+    top: 10%;
+    left: 10%;
+    width: 75%;   
+}
+
+.add-client{
+    margin: 0 auto;
+    position: relative;
+    top: 10%;
+    left: 10%;
+    width: 75%;   
+}
+
+.clients-data {
+    margin: 0 auto;
+    position: relative;
+    top: 30%;
+    left: 20%;
+    width: 20%;
+}
+
+.text-error {
+    width: 100%;
+    position: relative;
+    top: 0;
+}
+
+.red {
+    border-style: solid;
+    border-color: red;
+    border-width: 10px;
+}
+
+.text-error-style {
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    top: 0;
+}
+
+.clients-frame {
+  height: 710px;
+  width: 430px;
+  left: 0;
+  top: 25px;
+  background:
+    linear-gradient(
+    rgba(35,43,85,0.75),
+    rgba(35,43,85,0.95));
+  background-size: cover;
+  border-top: solid 1px rgba(255,255,255,.5);
+  border-radius: 5px;
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: all .5s ease;
+  position: relative;
+}
+
+.signin-active a {
+  padding-bottom: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: solid 2px #1059FF;
+  transition: all .25s ease;
+  cursor: pointer;
+  position: relative;
+  margin-left: 150px;
+  bottom: -20px;
+}
+
+.hide {
+    display: none;
+} 
+
+.dupa {
+    display: none;
+}
+
+.form-signin {
+  width: 430px;
+  height: 375px;
+	font-size: 16px;
+	font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  padding-top: 55px;
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.form-signin input, .form-signup input {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.form-styling {
+  width: 100%;
+  height: 35px;
+  padding: 0px 0px 0px 15px;
+  border: none;
+  border-radius: 20px;
+  margin: 0;
+  background: rgba(255,255,255,.2);
+}
+
+label {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  color: rgba(255,255,255,.7);
+  display: block;
+  font-family: 'Mukta Mahee', sans-serif;
+}
+
+:focus {outline: none;
+}
+
+.form-signin input:focus, textarea:focus, .form-signup input:focus, textarea:focus {
+    background: rgba(255,255,255,.3);
+    border: none; 
+    padding-right: 40px;
+    transition: background .5s ease;
+ }
+
+.btn-signin {
+  padding-top: 80px;
+  width: 370px;
+  height: 35px;
+	border: none;
+	border-radius: 20px;
+  margin-top: -8px;
+  position: relative;
+}
+
+.clients-btn-animate {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-align: center;
+  color: rgba(255,255,255, 1);
+  padding-top: 8px;
+  width: 360px;
+  height: 35px;
+  cursor: pointer;
+	border: none;
+	border-radius: 20px;
+  margin-top: 23px;
+  background-color: rgba(16,89,255, 1);
+  position: relative;
+  left: 8%;
+  top: 210px;
+  transition: all .5s ease, top .5s ease .5s, height .5s ease .5s, background-color .5s ease .75s; 
+}
+
+a.btn-signup:hover, a.btn-signin:hover {
+    cursor: pointer; 
+    background-color: #0F4FE6;
+    transition: background-color .5s; 
+}
+

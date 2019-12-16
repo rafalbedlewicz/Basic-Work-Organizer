@@ -1,0 +1,154 @@
+<link href="https://fonts.googleapis.com/css?family=Mukta+Mahee" rel="stylesheet">
+<div class="add-client"> 
+    <a ui-sref="clients" ui-sref-active="add-client">
+        <div class="back-button">
+            <img src="img/back.png" 
+                 style="
+                 width: 50%;
+                 height: 50%;
+                 left: 30%;
+                 top: 25%;
+                 position: relative;"> 
+        </div> 
+    </a> 
+<div class="clients-frame">
+            <form name ="clientName" class="form-signin">
+                <label>
+                NAME
+                </label> 
+                    <input 
+                        class="form-styling"
+                        type= "text" 
+                        name="clientName"
+                        maxlength="20"
+                        ng-focus="$ctrl.clearInputErrors('name')"
+                        ng-model="$ctrl.currentlyAddedClient.name" 
+                        ng-class="{
+                            red: $ctrl.hasInputAnyErrors('name')
+                        }"
+                    />
+                    <div  
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.name" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                </div>
+        </p>
+        <p>
+                <label>
+                LAST NAME
+                </label>
+                    <input
+                        class="form-styling"
+                        type= "text" 
+                        maxlength="20"
+                        name="clientLastName" 
+                        ng-focus="$ctrl.clearInputErrors('lastname')"
+                        ng-model="$ctrl.currentlyAddedClient.lastname"  
+                        ng-class="{
+                             red: $ctrl.hasInputAnyErrors('lastname')
+                        }"
+                    />
+                    <div 
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.lastname" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                    </div>
+ 
+        </p> 
+        <p>
+                <label>
+                PHONE
+                </label>
+                    <input
+                        class="form-styling"
+                        type= "text" 
+                        name="clientPhone" 
+                        ng-focus="$ctrl.clearInputErrors('phone')"
+                        ng-model="$ctrl.currentlyAddedClient.phone"  
+                        ng-class="{
+                             red: $ctrl.hasInputAnyErrors('phone')
+                        }"
+                    />
+                    <div 
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.phone" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                    </div>
+ 
+        </p> 
+        <p>
+                <label>
+                MORE
+                </label>
+            
+                    <textarea
+                        class="form-styling"
+                        style="height: 140px;"
+                        type= "text" 
+                        name="clientMore" 
+                        ng-focus="$ctrl.clearInputErrors('more')"
+                        ng-model="$ctrl.currentlyAddedClient.more"  
+                        ng-class="{
+                             red: $ctrl.hasInputAnyErrors('more')
+                        }"
+                    />
+                    </textarea>
+                    <div 
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.more" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                    </div>
+ 
+        </p> 
+        <p>
+                <label>
+                REFUSED
+                </label>
+                    <input
+                        class="form-styling"
+                        type= "checkbox" 
+                        name="clientUnwanted" 
+                        ng-focus="$ctrl.clearInputErrors('unwanted')"
+                        ng-model="$ctrl.currentlyAddedClient.unwanted"  
+                        ng-class="{
+                             red: $ctrl.hasInputAnyErrors('unwanted')
+                        }"
+                    />
+                    <div 
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.unwanted" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                    </div>
+ 
+        </p> 
+            </form>    
+            <div class="clients-btn-animate" ng-click="$ctrl.addClient()"><a class="btn-signin">ADD</a></div>
+    </div>  
+    <div class="clients-data" ng-show="$ctrl.fetchingClients">
+        Loading employee data from the server, please wait ...
+    </div>
+    
+    <div class="clients-data" ng-show="$ctrl.clientsFetchingError">
+        An error occurred while loading employee data: {{$ctrl.clientsFetchingError}}
+    </div>
+</div>

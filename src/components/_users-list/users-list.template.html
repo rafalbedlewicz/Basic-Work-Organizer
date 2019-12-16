@@ -1,0 +1,70 @@
+<div class="users-list">
+    <p>
+        <label>
+            Name
+        </label>  
+        <form name ="userName">
+            <input 
+                type= "text" 
+                name="userName" 
+                ng-focus="$ctrl.clearInputErrors('name')"
+                ng-model="$ctrl.currentlyAddedUser.name" 
+                ng-class="{
+                    red: $ctrl.hasInputAnyErrors('name')
+                }"
+                />
+            <div  
+                class="text-error"
+                ng-repeat="singleError in $ctrl.errors.name" 
+                ng-show="singleError.isOccuring"
+            >
+                {{singleError.label}}
+            </div>
+        </form>
+    </p>
+    <p>
+        <label>
+            Last name
+        </label>
+        <form name ="userLastName">
+            <input 
+                type= "text" 
+                name="userLastName" 
+                ng-focus="$ctrl.clearInputErrors('lastName')"
+                ng-model="$ctrl.currentlyAddedUser.lastName"  
+                ng-class="{
+                     red: $ctrl.hasInputAnyErrors('lastName')
+                }"
+                />
+            <div 
+                class="text-error"
+                ng-repeat="singleError in $ctrl.errors.lastName" 
+                ng-show="singleError.isOccuring"
+            >
+                {{singleError.label}}
+            </div>
+         </form>    
+    </p>    
+    
+    
+    
+    
+    <button ng-click="$ctrl.addUser()">ADD</button>
+    <div>
+        <ul>
+            <li ng-repeat="user in $ctrl.users">
+                <span ng-show="!user.isCurrentlyEdited">{{user.name + ' ' + user.lastName}}</span>
+                <span ng-show="user.isCurrentlyEdited">
+                    <input ng-model="user.name" />
+                    <input ng-model="user.lastName" />
+                </span>
+                <button ng-click="$ctrl.removeUser($index)">
+                    x
+                </button>
+                <button ng-click="$ctrl.onUserEdit($index)">
+                    {{user.isCurrentlyEdited ? 'ok' : 'edit'}}
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>

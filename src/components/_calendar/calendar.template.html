@@ -1,0 +1,178 @@
+<div class = calendar>
+    <div class="popup" ng-click="$ctrl.test8">Click me to toggle the popup!
+      <span class="popuptext" id="myPopup">A Simple Popup!</span>
+    </div>    
+<h2 class="text-center">{{ $ctrl.calendarTitle }}</h2>
+
+  <div class="row" style="width: 100%;">
+
+    <div class="col-md-6 text-center" ng-click="$ctrl.fromMonthToDay" style="display: inline; position: relative;">
+      <div class="btn-group" style="position: relative; right: 0; display: inline; width: 20%; top: 0;">
+
+        <button
+          class="btn btn-primary"
+          mwl-date-modifier
+          date="$ctrl.viewDate"
+          decrement="$ctrl.calendarView"
+          ng-click="$ctrl.cellIsOpen = false">
+          Previous
+        </button>
+        <button
+          class="btn btn-default"
+          mwl-date-modifier
+          date="$ctrl.viewDate"
+          set-to-today
+          ng-click="$ctrl.cellIsOpen = false">
+          Today
+        </button>
+        <button
+          class="btn btn-primary"
+          mwl-date-modifier
+          date="$ctrl.viewDate"
+          increment="$ctrl.calendarView"
+          ng-click="$ctrl.cellIsOpen = false">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <div class="col-md-6 text-center" style="display: inline; position: relative; left: 55%;">
+      <div class="btn-group" style="position: relative; display: inline; top: 0;">
+        <label class="btn btn-primary" ng-model="$ctrl.calendarView" uib-btn-radio="'year'" ng-click="$ctrl.cellIsOpen = false">Year</label>
+        <label class="btn btn-primary" ng-model="$ctrl.calendarView" uib-btn-radio="'month'" ng-click="$ctrl.cellIsOpen = false">Month</label>
+        <label class="btn btn-primary" ng-model="$ctrl.calendarView" uib-btn-radio="'week'" ng-click="$ctrl.cellIsOpen = false">Week</label>
+        <label class="btn btn-primary" ng-model="$ctrl.calendarView" uib-btn-radio="'day'" ng-click="$ctrl.cellIsOpen = false">Day</label>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <mwl-calendar
+    events="$ctrl.events"
+    view="$ctrl.calendarView"
+    view-title="$ctrl.calendarTitle"
+    view-date="$ctrl.viewDate"
+    on-event-click="$ctrl.eventClicked(calendarEvent)"
+    on-event-times-changed="$ctrl.eventTimesChanged(calendarEvent, calendarNewEventStart, calendarNewEventEnd); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+    cell-is-open="$ctrl.cellIsOpen"
+    day-view-start="06:00"
+    day-view-end="22:59"
+    day-view-split="30"
+    day-view-event-chunk-size="1"
+    cell-modifier="$ctrl.modifyCell(calendarCell)"
+    cell-auto-open-disabled="true"
+    on-timespan-click="$ctrl.timespanClicked(calendarDate, calendarCell)">
+  </mwl-calendar>
+
+  <br><br><br>
+<!--
+  <h3 id="event-editor">
+    Edit events
+    <button
+      class="btn btn-primary pull-right"
+      ng-click="$ctrl.addEvent()">
+      Add new
+    </button>
+    <div class="clearfix"></div>
+  </h3>
+
+  <table class="table table-bordered">
+
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Primary color</th>
+        <th>Secondary color</th>
+        <th>Starts at</th>
+        <th>Ends at</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="event in $ctrl.events track by $index">
+        <td>
+          <input
+            type="text"
+            class="form-control"
+            ng-model="event.title">
+        </td>
+        <td>
+          <input class="form-control" colorpicker type="text" ng-model="event.color.primary">
+        </td>
+        <td>
+          <input class="form-control" colorpicker type="text" ng-model="event.color.secondary">
+        </td>
+        <td>
+          <p class="input-group" style="max-width: 250px">
+            <input
+              type="text"
+              class="form-control"
+              readonly
+              uib-datepicker-popup="dd MMMM yyyy"
+              ng-model="event.startsAt"
+              is-open="event.startOpen"
+              close-text="Close" >
+            <span class="input-group-btn">
+              <button
+                type="button"
+                class="btn btn-default"
+                style="border: none; width: 20%; background: url('img/small_calendar.png');
+                background-size: 80%; background-repeat: no-repeat;"
+                ng-click="$ctrl.toggle($event, 'startOpen', event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </p>
+          <div
+            uib-timepicker
+            ng-model="event.startsAt"
+            hour-step="1"
+            minute-step="15"
+            show-meridian="true">
+          </div>
+        </td>
+        <td>
+          <p class="input-group" style="max-width: 250px">
+            <input
+              type="text"
+              class="form-control"
+              readonly
+              uib-datepicker-popup="dd MMMM yyyy"
+              ng-model="event.endsAt"
+              is-open="event.endOpen"
+              close-text="Close">
+            <span class="input-group-btn">
+              <button
+                type="button"
+                class="btn btn-default"
+                style="border: none; width: 20%; background: url('img/small_calendar.png');
+                background-size: 80%; background-repeat: no-repeat;"
+                ng-click="$ctrl.toggle($event, 'endOpen', event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </p>
+          <div
+            uib-timepicker
+            ng-model="event.endsAt"
+            hour-step="1"
+            minute-step="15"
+            show-meridian="true">
+          </div>
+        </td>
+        <td>
+          <button
+            class="btn btn-danger"
+            ng-click="$ctrl.events.splice($index, 1)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+-->
+</div>  

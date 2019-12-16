@@ -1,0 +1,16 @@
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<div id ="side-menu" class="sidenav">
+        <div class = "links">
+        <a ui-sref="calendar" ui-sref-active="current-state"><h1>&#128197 Calendar</h1></a>
+        <a ui-sref="clients" ui-sref-active="current-state"><h1>&#128104 Clients</h1></a>
+        <a ui-sref="employees" ui-sref-active="current-state"><h1>&#128240 Employees</h1></a>
+        <a ui-sref="settings" ui-sref-active="current-state"><h1>&#128295 Settings</h1></a>
+        <a ui-sref="home" ui-sref-active="current-state"><h1>&#127968 Home</h1></a>
+        
+        </div>
+</div>
+    
+<button id ="button" ng-click="$ctrl.openClose()"><h2>&#9658</h2><div class="button-divisor"></div><h2>&#9658</h2></button>
+ 
+    <ui-view></ui-view>

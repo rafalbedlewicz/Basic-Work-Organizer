@@ -1,0 +1,187 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<div class="employees">
+    <a ui-sref="add-employee" ui-sref-active="add-employee">
+        <div class="add-employee-button">
+            <img src="img/add_employee.png" 
+                 style="
+                 width: 50%;
+                 height: 50%;
+                 left: 30%;
+                 top: 25%;
+                 position: relative;"> 
+        </div> 
+    </a>    
+    <div>
+        <ul>
+            <li ng-repeat="employee in $ctrl.employees">
+                <div class="content clearfix">
+                    <div class="cube-container">
+				<div class="photo-cube"
+                                     ng-class="{notTransform: $ctrl.transformingStopped}"
+                                     ng-mouseover="$ctrl.editButtonMovingStart = true; $ctrl.editButtonMovingStop = false"
+                                     ng-mouseleave="$ctrl.editButtonMovingStop = true; $ctrl.editButtonMovingStart = false">
+                                    <div class="back photo-desc" src="http://gdurl.com/tvtR" alt=""> 
+                                        <img class="employee-photo"
+                                            ng-src="{{$ctrl.handlePhoto(employee.photo)}}" 
+                                            ng-show="$ctrl.currentlyEditedEmployeeId != employee.id"
+                                        >          
+                                    </div>
+					<div class="front photo-desc" style="background-color: {{employee.color}}">
+                                            
+                <div style='display: inline;
+                            position: absolute; 
+                            height: 20px; 
+                            width: 100%;  
+                            left: 0;
+                            right: 0;
+                            z-index: 100;' >
+                    <span
+                        ng-show="$ctrl.currentlyEditedEmployeeId != employee.id" 
+                        class="employee-name">
+                        {{employee.name + ' ' + employee.lastname}}
+                    </span>
+                    <div style='width: auto; height: 100%;'>
+                    <span ng-show="$ctrl.currentlyEditedEmployeeId == employee.id" style='height: 10%;'>
+                        <input 
+                            type="text" 
+                            class="edit-form-styling-name" 
+                            ng-model="$ctrl.currentlyEditedEmployee.name"
+                            ng-class="{red: $ctrl.hasInputAnyErrors('name')}"
+                        />
+                        <div 
+                            class="text-error"
+                            ng-repeat="singleError in $ctrl.errors.name" 
+                            ng-show="singleError.isOccuring"
+                        >
+                            <a class="text-error-style">
+                            {{singleError.label}}
+                            </a>
+                        </div>
+                        <input 
+                            type="text" 
+                            class="edit-form-styling-lastname" 
+                            ng-model="$ctrl.currentlyEditedEmployee.lastname"
+                            ng-class="{red: $ctrl.hasInputAnyErrors('lastname')}"
+                        />
+                        <div 
+                            class="text-error"
+                            ng-repeat="singleError in $ctrl.errors.lastname" 
+                            ng-show="singleError.isOccuring"
+                        >
+                            <a class="text-error-style">
+                            {{singleError.label}}
+                            </a>
+                        </div>    
+                    </span>
+                </div>
+                </div>
+                <div style='display: inline;
+                            position: relative;
+                            left: 0;
+                            right: 0;
+                            top: 60px;
+                            margin-top: 5%;
+                            width: 100%;
+                            z-index: 100'>
+                    <span 
+                        class="employee-phone" 
+                        ng-show="$ctrl.currentlyEditedEmployeeId != employee.id"
+                    >
+                        {{' phone ' + employee.phone}}
+                    </span>
+                   
+                    <span ng-show="$ctrl.currentlyEditedEmployeeId == employee.id" style='height: 10%;'>
+                        <input 
+                            type="text" 
+                            class="edit-form-styling-phone" 
+                            ng-model="$ctrl.currentlyEditedEmployee.phone"
+                            ng-class="{red: $ctrl.hasInputAnyErrors('phone')}"
+                        />
+                    </span>    
+                        </div>  
+                                            <label 
+                        class = "edit-photo-label" 
+                        ng-show="$ctrl.currentlyEditedEmployeeId == employee.id"
+                    >
+                        <div 
+                             ng-show="$ctrl.currentlyEditedEmployeeId == employee.id"
+                        >   
+                        <input 
+                            type= "file"  
+                            style="
+                                position: relative; 
+                                display: none;
+                                " 
+                            ng-model="$ctrl.currentlyEditedEmployee.photo" base-sixty-four-input
+                            />
+                        </div>
+                        <img class="editing-employee-photo"
+                             ng-src="{{$ctrl.handlePhoto($ctrl.currentlyEditedEmployee.photo)}}"
+                             >  
+                    </label>    
+                    <div style='display: inline; 
+                                position: relative; 
+                                width: 25px;
+                                height: 25px;
+                                z-index: 100;
+                                top: 80px'>
+                    <span 
+                        class="employee-id" 
+                    >
+                        {{' id: ' + employee.id + '.'}}
+                    </span>
+                    <!--<div class="employee-color" style="background-color: {{employee.color}}"></div> -->          
+                </div>  		
+					</div>
+					<img class="left" src="http://gdurl.com/tvtR" alt="">
+					<img class="right" src="http://gdurl.com/VjHH" alt="">
+
+				</div>
+			</div>	
+
+		</div>
+                       
+                      
+                <img
+                    ng-click="$ctrl.removeEmployee($ctrl.onEmployeeRemovalConfirmed, employee.id)" 
+                    src = 'img/delete_icon.png'
+                    class="editing-button"   
+                    ng-show="$ctrl.currentlyEditedEmployeeId != employee.id"
+                    ng-class="{fadingOut: $ctrl.editButtonMovingStart, fadingIn: $ctrl.editButtonMovingStop}"
+                    style="bottom: 160px; left: 200px;"
+                >
+                <img
+                    ng-click="$ctrl.onStartEmployeeEditing(employee.id)" 
+                    src = 'img/edit_icon.png'
+                    class="editing-button"
+                    ng-show="$ctrl.currentlyEditedEmployeeId != employee.id"
+                    ng-class="{fadingOut: $ctrl.editButtonMovingStart, fadingIn: $ctrl.editButtonMovingStop}"
+                    style="bottom: 160px; left: 170px;"
+                >
+                <img 
+                    ng-click="$ctrl.onFinishEmployeeEditing()" 
+                    src = 'img/accept_icon.png'
+                    class="editing-button"
+                    ng-show="$ctrl.currentlyEditedEmployeeId == employee.id"
+                    style="opacity: 0.5; bottom: 0; left: 110px;"
+                >
+                <img 
+                    ng-click="$ctrl.onResignEmployeeEditing()" 
+                    src = 'img/resign_icon.png'
+                    class="editing-button"
+                    ng-show="$ctrl.currentlyEditedEmployeeId == employee.id"
+                    style="opacity: 0.5; bottom: 0; left: 135px;"
+                >
+                <img 
+                    ng-click="$ctrl._onDeletePhotoInEmployeeEditing()" 
+                    src = 'img/delete_photo_icon.png'
+                    class="editing-button"
+                    ng-show="$ctrl.currentlyEditedEmployeeId == employee.id"
+                    style="opacity: 0.5; bottom: 0; left: 160px;"
+                >    
+            </li>
+        </ul>
+    </div>  
+</div>    
+   
+

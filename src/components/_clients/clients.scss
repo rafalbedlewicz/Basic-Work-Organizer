@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+.clients {
+    margin: 0 auto;
+    position: relative;
+    top: 10%;
+    left: 5%;
+    width: 75%; 
+}
+
+.add-client-button {
+    background:
+    transparnet;
+    background-size: cover;
+    border-radius: 100px;
+    list-style:none;
+    position: fixed;
+    width: 80px;
+    top: 10%;
+    height: 80px;
+    margin-bottom: 2%; 
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: 101%;
+    -webkit-filter: invert(1);
+}
+
+.add-client-button:hover{
+    background-color: #DED1BE;
+    transition: 1s;
+}
+
+.editing-button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    position: absolute;
+    background: transparnet;
+    border: transparent solid 3px;
+    border-radius: 7px;
+    -webkit-filter: invert(1);
+}
+
+.details-button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    position: absolute;
+    background: transparnet;
+    border: transparent solid 3px;
+    border-radius: 7px;
+    -webkit-filter: invert(1);
+}
+
+.fadingOut {
+    transition: 1s;
+    width: 0 !important;
+    height: 0 !important;
+    
+}
+
+.fadingIn {
+    transition: 1s;
+    width: 20px !important;
+    height: 20px !important;
+    
+}
+
+/*.editing-button:hover{
+    width: 40px !important;
+    height: 40px !important;
+    transition: 1s;
+}*/
+
+
+md-toast {
+    position: fixed !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.client-phone {
+    font-size: 13px;
+    height: 1%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: #f1f1f1;
+    display: inline-table;
+    position: relative;
+    text-align: center;
+}
+
+.client-id {
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: #f1f1f1;
+    display: inline;
+    transition: 0.3s;
+    top: 3px;
+    position: relative;
+    height: 1%;
+    width: 100%;
+    text-align: center;
+}
+
+.text-error {
+    width: 100%;
+    position: relative;
+    top: 0;
+}
+
+.red {
+    border-style: solid;
+    border-color: red;
+    border-width: 10px;
+}
+
+.text-error-style {
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    top: 0;
+}
+
+ul {
+  height: 1500px;
+  width: 95%;
+  border-top: solid 0px rgba(255,255,255,.5);
+  overflow: hidden;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+li {
+    background: transparent;
+    list-style:none;
+    display: inline-block;
+    position: relative;
+    top: 30px;
+    width: 20%;
+    height: 10%;
+    margin: 6%;
+   } 
+   
+html, body * { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+
+.edit-form-styling-name {
+  width: 95%;
+  position: relative;
+  top: 5px;
+  height: auto;
+  display: inline;
+	border: none;
+	border-radius: 20px;
+  background: rgba(255,255,255,.2);
+  text-align: center;
+  font-size: 12px;
+}
+
+.edit-form-styling-phone {
+  width: 95%;
+  position: relative;
+  top: 10px;
+  height: auto;
+  display: inline;
+	border: none;
+	border-radius: 20px;
+  background: rgba(255,255,255,.2);
+  text-align: center;
+  font-size: 12px;
+}
+
+.edit-form-styling-phone:hover {
+    cursor: pointer; 
+    background-color: #0F4FE6;
+    transition: background-color .5s;  
+}
+
+.edit-form-styling-name:hover {
+    cursor: pointer; 
+    background-color: #0F4FE6;
+    transition: background-color .5s; 
+}
+
+.edit-form-styling-lastname {
+  width: 95%;
+  position: relative;
+  top: 20px;
+  height: auto;
+  display: inline;
+	border: none;
+	border-radius: 20px;
+  background: rgba(255,255,255,.2);
+  text-align: center;
+  font-size: 12px;
+}
+
+.edit-form-styling-lastname:hover {
+    cursor: pointer; 
+    background-color: #0F4FE6;
+    transition: background-color .5s;  
+}
+
+label {
+  font-weight: 400;
+  font-size: 13px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  color: rgba(255,255,255,.7);
+  display: block;
+}
+
+:focus {outline: none;
+}
+
+a {
+	text-decoration: none;
+}
+h1,
+h2,
+.client-name {
+	text-transform: uppercase;
+        position: relative;
+        bottom: 10px;
+        font-size: 1.5em;
+	line-height: 1.25em;
+	margin-top: .85em;
+	margin-bottom: .5em;
+        text-align: center;
+        
+}
+h2 {
+	font-size: 1.125em;
+	color: #4a89ca;
+	font-weight: 600;
+	margin: 0;
+}
+p {
+	font-size: .875em;
+	line-height: 1.4;
+	margin: 0 0 1.5em;
+}
+.content {
+	margin: auto;
+}
+.main-header {
+	text-align: center;
+	padding: 2.8em 0 3.8em;
+}
+.cube-container {
+	max-width: 180px;
+        max-height: 180px;
+	text-align: center;
+	margin: 0 auto 4.5em;
+}
+
+.name {
+	font-size: 1.65em;
+	font-weight: 800;
+	margin: 0 0 1.5em;
+	line-height: 1;
+}
+.name span {
+	font-weight: 300;
+	margin-left: -7px;
+}
+.logo {
+	width: 45px;
+	margin-bottom: .4em;
+	cursor: pointer;
+}
+.button {
+	font-size: .8em;
+	color: #fff;
+	width: 90%;
+	line-height: 1.15;
+	font-weight: 700;
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: .95em 0;
+	border-radius: .5em;
+	background-color: #373737;
+	margin: auto;
+}
+
+.photo-desc {
+	font-size: .85em;
+	color: #fff;
+	padding: 1.1em 1em 0;
+	background: #345d88;
+}
+
+.clearfix::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+@media (min-width: 769px) {
+	.cube-container {
+		float: left;
+		margin-left: 16.6%;
+	}
+}
+@media (min-width: 1025px) {
+	.cube-container:first-child {
+		margin-left: 0;
+	}
+	.cube-container:last-child{
+		float: right;
+	}
+	.content {
+		max-width: 900px;
+		margin: auto;
+	}
+}
+
+.button {
+	transition: background .3s;
+}
+.button:hover {
+	background: rgba(74,137,202, 1);
+}
+
+.cube-container {
+    box-shadow: 0 18px 40px 5px rgba(0,0,0,.4);
+    perspective: 600px;
+}
+
+.client-photo-cube {
+    transition: transform 2s ease-in-out; 
+    width: 160px;
+    height: 160px;
+    transform-style: preserve-3d;
+}
+
+.notTransform {
+    transform: none !important;
+}
+
+.front,
+.back,
+.left,
+.right {
+width: 100%;
+height: 100%;
+display: block;
+position: absolute;
+}
+
+.front {
+border: white solid 1px;
+}

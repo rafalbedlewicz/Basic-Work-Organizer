@@ -1,0 +1,19 @@
+@import "../../../node_modules/angular-material/angular-material.min.css";
+
+.users-list {
+    width: 400px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 20%;
+}
+.red {
+    border-color: red;
+    border-width: 2px;
+}
+
+.text-error {
+    color: red;
+}

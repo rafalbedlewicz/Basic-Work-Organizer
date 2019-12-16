@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+.side-menu {
+    padding: 20px;
+    background-color: #f00;
+}
+
+.links {
+    width: 200px;
+    position: relative;
+}
+
+#ui-view {
+    height: 100%;
+    width: 100%;
+}
+
+.button-divisor {
+    height: 30%;
+}
+
+h2 {
+   color: #818181;
+   opacity: 1;
+   z-index: 2;
+   position: relative;
+   display: block;
+   transition: 0.3s;
+   font-size: 20px;
+   left: 3px;
+   top: 20%;
+   transition: transform 1s, -webkit-transform 1s;  
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    word-spacing: 50px;
+    text-align: left;
+    }
+    
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #212e41;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+#button {
+    height: 100%;
+    width: 40px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #212e41;
+    opacity: 0.5;
+    transition: 0.5s;
+    padding-top: 60px;
+    border: none;
+    outline: none;
+}
+
+.sidenav a {
+    font-family: 'Raleway', sans-serif;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    position: relative;
+}
+
+h2:hover {
+    color: white;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+

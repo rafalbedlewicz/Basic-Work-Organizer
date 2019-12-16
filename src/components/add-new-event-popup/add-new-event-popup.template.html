@@ -1,0 +1,143 @@
+<body>
+    <div class="eventPopup">New event</div>
+    <form class="eventPopup">
+        <input class="eventInput" 
+               ng-model="$ctrl.eventTitle" 
+               placeholder="Title"/>
+                            <div  
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.title" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                </div>
+        <textarea class="eventInput" 
+                  style="height: 120px" 
+                  ng-model="$ctrl.eventDescription" 
+                  placeholder="Description"/>
+        </textarea>
+                            <div  
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.description" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                </div>
+        <div>
+        <p style="display: inline-block; width: 11%;">Ends at</p>
+        <p style="display: inline-block; width: 13%;">or</p>
+        <p style="display: inline-block; width: 9%;">Takes</p>
+        </div>
+        <div>
+            <input class="eventInput" 
+                   style="width:10%; display: inline-block;" 
+                   type="number" 
+                   maxlength="2" 
+                   min="6" 
+                   max="22"
+                   ng-model="$ctrl.eventEndHour" 
+                   ng-change="$ctrl.updateEventLastingTime()"
+                   ng-blur="$ctrl.hoursValidation()" 
+                   placeholder="00"/> :
+            <input class="eventInput" 
+                   style="width:10%; display: inline-block;" 
+                   type="number" 
+                   maxlength="2" 
+                   min="0" 
+                   max="59"
+                   ng-model="$ctrl.eventEndMinute" 
+                   ng-change="$ctrl.updateEventLastingTime()"
+                   ng-blur="$ctrl.minutesValidation()" 
+                   placeholder="00"/>
+            <input class="eventInput" 
+                   style="width:10%; display: inline-block;" 
+                   type="number" 
+                   maxlength="2" 
+                   min="0"
+                   max="16"
+                   ng-model="$ctrl.eventTakesHours" 
+                   ng-change="$ctrl.updateEventEndTime()"
+                   ng-blur="$ctrl.hoursValidation()" 
+                   placeholder="00"/> :
+                                      <div 
+                        style="display: none"                  
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.endHours" 
+                        ng-show="singleError.isOccuring"
+                    >
+
+                </div>
+            <input class="eventInput" 
+                   style="width:10%; display: inline-block;" 
+                   type="number" 
+                   maxlength="2" 
+                   min="0"
+                   max="59"
+                   ng-model="$ctrl.eventTakesMinutes" 
+                   ng-change="$ctrl.updateEventEndTime()"
+                   ng-blur="$ctrl.minutesValidation()" 
+                   placeholder="00"/>
+                                      <div  
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.endMinutes" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                </div>
+        </div>
+        <button class="eventButton" 
+                style="left: 5%; background-color: lightgreen;" 
+                ng-click="$ctrl.acceptPopup()">
+                &#10003;
+        </button>
+        <button class="eventButton" 
+                style="right: 5%; background-color: indianred;" 
+                ng-click="$ctrl.cancelPopup()">
+                &#10005;
+        </button>
+        <button ng-if="$ctrl.calendarEvent" ng-click="$ctrl.onDeleteEvent()">Delete event</button>
+        <div>
+            <md-select style="width:40%; display: inline-block;" 
+                       ng-model="$ctrl.selectedEmployee" 
+                       placeholder="Select an employee">
+                <md-option ng-repeat="employee in $ctrl.employees" 
+                           ng-value="employee"
+                           style="background-color: {{employee.color}}">
+                           {{employee.name + ' ' + employee.lastname}}
+                </md-option>
+            </md-select>    
+                                <div  
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.employee" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                </div>
+            <md-select style="width:40%; display: inline-block;" 
+                       ng-model="$ctrl.selectedClient" 
+                       placeholder="Select a client">
+                <md-option ng-repeat="client in $ctrl.clients" 
+                           ng-value="client">
+                           {{client.name + ' ' + client.lastname}}
+                </md-option>
+            </md-select>
+                                <div  
+                        class="text-error"
+                        ng-repeat="singleError in $ctrl.errors.client" 
+                        ng-show="singleError.isOccuring"
+                    >
+                    <a class="text-error-style">
+                    {{singleError.label}}
+                    </a>
+                </div>
+        </div>
+    </form>
+</body>

@@ -1,0 +1,70 @@
+md-dialog {
+    max-height: none;
+}
+
+.md-transition-in {
+    width: 44%;
+    height: auto;
+    background-color: lightslategray;
+}
+
+.md-transition-in > button{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.md-transition-in > button ~ button {
+    left: 0 !important;
+}
+
+.table-bordered {
+    
+}
+
+.calendar  #event-editor {
+    
+}
+
+calendar h2 {
+    top: 0 !important;
+}
+
+.eventPopup {
+    width: 90%;
+    position: relative;
+    left: 5%;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.eventInput {
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2)
+}
+
+.eventInput:hover {
+    background: rgba(255,255,255,.3);
+}
+
+.eventButton {
+    position: fixed;
+    bottom: 5%;
+    border: none;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+.eventButton:hover {
+    opacity: 1;
+}
+
+._md {
+    border-radius: 13px;
+}
+
